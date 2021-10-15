@@ -1,0 +1,184 @@
+{
+	"contentrating" : "Everyone",
+	"description" : "Music reactive and highly customizable Conway's Game of Life simulation.",
+	"file" : "index.html",
+	"general" : 
+	{
+		"properties" : 
+		{
+			"color_bg" : 
+			{
+				"condition" : "show_colors.value == 1",
+				"index" : 7,
+				"order" : 107,
+				"text" : "- Background",
+				"type" : "color",
+				"value" : "0 0 0"
+			},
+			"color_high" : 
+			{
+				"condition" : "show_colors.value == 1",
+				"index" : 6,
+				"order" : 106,
+				"text" : "- Top Right",
+				"type" : "color",
+				"value" : "0 0.7803921568627451 1"
+			},
+			"color_low" : 
+			{
+				"condition" : "show_colors.value == 1",
+				"index" : 5,
+				"order" : 105,
+				"text" : "- Bottom Left",
+				"type" : "color",
+				"value" : "1 0 1"
+			},
+			"edgetype" : 
+			{
+				"condition" : "show_behavior.value == 1",
+				"index" : 2,
+				"options" : 
+				[
+					{
+						"label" : "don't wrap",
+						"value" : "zeros"
+					},
+					{
+						"label" : "wrap",
+						"value" : "wrap"
+					}
+				],
+				"order" : 102,
+				"text" : "- Edges",
+				"type" : "combo",
+				"value" : "zeros"
+			},
+			"gps" : 
+			{
+				"condition" : "show_behavior.value == 1",
+				"fraction" : false,
+				"index" : 3,
+				"max" : 120,
+				"min" : 1,
+				"order" : 103,
+				"text" : "- Generations per second",
+				"type" : "slider",
+				"value" : 16
+			},
+			"mr" : 
+			{
+				"condition" : "show_mr.value == 1",
+				"index" : 9,
+				"order" : 109,
+				"text" : "- Enabled",
+				"type" : "bool",
+				"value" : true
+			},
+			"mr_amp" : 
+			{
+				"condition" : "show_mr.value == 1",
+				"fraction" : true,
+				"index" : 10,
+				"max" : 5,
+				"min" : 0.10000000000000001,
+				"order" : 110,
+				"precision" : 2,
+				"step" : 0.10000000000000001,
+				"text" : "- Audio Height Amplification",
+				"type" : "slider",
+				"value" : 1
+			},
+			"mr_dir" : 
+			{
+				"condition" : "show_mr.value == 1",
+				"index" : 11,
+				"options" : 
+				[
+					{
+						"label" : "Down",
+						"value" : "down"
+					},
+					{
+						"label" : "Up",
+						"value" : "up"
+					},
+					{
+						"label" : "Right",
+						"value" : "right"
+					},
+					{
+						"label" : "Left",
+						"value" : "left"
+					}
+				],
+				"order" : 111,
+				"text" : "- Direction",
+				"type" : "combo",
+				"value" : "up"
+			},
+			"schemecolor" : 
+			{
+				"order" : 0,
+				"text" : "ui_browse_properties_scheme_color",
+				"type" : "color",
+				"value" : "0 0 0"
+			},
+			"show_behavior" : 
+			{
+				"index" : 1,
+				"order" : 101,
+				"text" : "---- Behavior",
+				"type" : "bool",
+				"value" : false
+			},
+			"show_colors" : 
+			{
+				"index" : 4,
+				"order" : 104,
+				"text" : "---- Colors",
+				"type" : "bool",
+				"value" : false
+			},
+			"show_mr" : 
+			{
+				"index" : 8,
+				"order" : 108,
+				"text" : "---- Music Reactive",
+				"type" : "bool",
+				"value" : false
+			},
+			"starttype" : 
+			{
+				"index" : 0,
+				"options" : 
+				[
+					{
+						"label" : "empty field",
+						"value" : "empty"
+					},
+					{
+						"label" : "random field",
+						"value" : "random"
+					},
+					{
+						"label" : "a glider",
+						"value" : "glider"
+					}
+				],
+				"order" : 100,
+				"text" : "Start with",
+				"type" : "combo",
+				"value" : "empty"
+			}
+		},
+		"supportsaudioprocessing" : true
+	},
+	"preview" : "preview.jpg",
+	"tags" : [ "Music" ],
+	"title" : "Conway's Game of Life -- Music Reactive",
+	"type" : "web",
+	"version" : 1,
+	"visibility" : "public",
+	"workshopid" : "2628336501",
+	"workshopurl" : "steam://url/CommunityFilePage/2628336501"
+}
