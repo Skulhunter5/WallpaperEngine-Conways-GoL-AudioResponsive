@@ -3,34 +3,34 @@ Audio responsive and highly customizable [Conway's Game of Life](https://en.wiki
 
 ## Customizable
 * Start with:
-Determines if the grid should start *empty*, *with random values * or *with a glider*.
+Determines if the grid should start *empty* or *with random values*
 \[Default value: empty]
 * Behavior
   * Edges:
-  Determines of the grid *wraps* or *doesn't wrap* around the edges.
+  Determines of the grid *wraps* or *doesn't wrap* around the edges
   \[Default value: don't wrap]
   * Generations per second:
-  How many generations to advance per second. (Keep in mind that Wallpaper Engine only provides audio updates 30 times a second)
+  How many generations to advance per second (Keep in mind that Wallpaper Engine only provides audio updates 30 times a second)
   \[Default value: 16]
 * Colors
   * Bottom Left:
-  The color in the bottom left corner.
+  The color in the bottom left corner
   \[Default value: #ff00ff]
   * Top Right:
-  The color in the top right corner.
+  The color in the top right corner
   \[Default value: #00c7ff]
   * Background:
-  The static solid color of the background.
+  The static solid color of the background
   \[Default value: #363636]
 * Music Reactive
   * Enabled:
-  Enables/Disables the audio responsiveness.
+  Enables/Disables the audio responsiveness
   \[Default value: true]
   * Audio Height Amplification:
-  Amplifies the height of the audio columns.
+  Amplifies the height of the audio columns
   \[Default value: 1]
   * Direction:
-  The direction the audio columns are facing. (up, down, left, right)
+  The direction the audio columns are facing (up, down, left, right)
   \[Default value: up]
 
 ## Credits
