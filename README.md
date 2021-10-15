@@ -1,5 +1,5 @@
 # WallpaperEngine-Conways-GoL-AudioResponsive
-Audio responsive and highly customizable [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) Wallpaper for [Wallpaper Engine](https://www.wallpaperengine.io/en).
+Audio responsive and highly customizable [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) wallpaper for [Wallpaper Engine](https://www.wallpaperengine.io/en).
 
 ## Customizable
 * Colors:
