@@ -14,10 +14,10 @@ Determines if the grid should start *empty* or *with random values*
   \[Default value: 16]
 * Colors
   * Bottom Left:
-  The color in the bottom left corner
+  Color in the bottom left corner
   \[Default value: #ff00ff]
   * Top Right:
-  The color in the top right corner
+  Color in the top right corner
   \[Default value: #00c7ff]
   * Background:
   The static solid color of the background
