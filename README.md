@@ -2,18 +2,18 @@
 Audio responsive and highly customizable [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) Wallpaper for [Wallpaper Engine](https://www.wallpaperengine.io/en).
 
 ## Customizable
-### Colors:
-* Background
-* Bottom-Left
-* Top-Right
-### Starting field options:
-* Empty
-* Random
-* A glider
-### Edge behavior:
-* wrap
-* don't wrap
-### Generations per second
+* Colors:
+  * Background
+  * Bottom-Left
+  * Top-Right
+* Starting field options:
+  * Empty
+  * Random
+  * A glider
+* Edge behavior:
+  * wrap
+  * don't wrap
+* Generations per second
 * Audio responsive
 * Audio Height Amplification
 * Direction:
