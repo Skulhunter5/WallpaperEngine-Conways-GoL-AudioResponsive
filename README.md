@@ -21,7 +21,8 @@ Audio responsive and highly customizable [Conway's Game of Life](https://en.wiki
   * Down
   * Right
   * Left
-
+## Credits
 Credits to [Sage Binder](https://github.com/SageBinder)/[SaggiSponge](https://steamcommunity.com/id/SaggiSponge/) and [his project](https://github.com/SageBinder/Wallpapers-For-WallpaperEngine/tree/0a129d68c64328e5c735fcf10e3290387db08612/GameOfLifeResponsiveAudio#wallpaperengine-conway-life-audio-responsive) for the idea.
 
 ## Link
+You can find the Steam workshop item [here](https://steamcommunity.com/sharedfiles/filedetails/?id=2628336501).
