@@ -61,7 +61,7 @@ var debug;
 
 */
 
-function init() { // TODO: Add drawing and maybe also clear and pause/play buttons
+function init() {
    canvas = document.getElementById('canvas');
    
    button_clear = document.getElementById('button_clear');
