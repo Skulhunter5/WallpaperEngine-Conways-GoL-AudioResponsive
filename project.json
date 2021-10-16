@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Music reactive and highly customizable Conway's Game of Life simulation.",
+	"description" : "Audio responsive and highly customizable Conway's Game of Life simulation.\r\n\r\nYou can find the source code [url=https://github.com/Skulhunter5/WallpaperEngine-Conways-GoL-AudioResponsive]here[/url].\r\n\r\nCredits to SaggiSponge from which I got the idea.",
 	"file" : "index.html",
 	"general" : 
 	{
@@ -9,58 +9,65 @@
 			"color_bg" : 
 			{
 				"condition" : "show_colors.value == 1",
-				"index" : 7,
-				"order" : 107,
-				"text" : "- Background",
+				"index" : 9,
+				"order" : 109,
+				"text" : "- Background color",
 				"type" : "color",
 				"value" : "0 0 0"
 			},
 			"color_high" : 
 			{
 				"condition" : "show_colors.value == 1",
-				"index" : 6,
-				"order" : 106,
-				"text" : "- Top Right",
+				"index" : 8,
+				"order" : 108,
+				"text" : "- High color",
 				"type" : "color",
 				"value" : "0 0.7803921568627451 1"
 			},
 			"color_low" : 
 			{
 				"condition" : "show_colors.value == 1",
-				"index" : 5,
-				"order" : 105,
-				"text" : "- Bottom Left",
+				"index" : 7,
+				"order" : 107,
+				"text" : "- Low color",
 				"type" : "color",
 				"value" : "1 0 1"
 			},
-			"edgetype" : 
+			"controls" : 
+			{
+				"condition" : "show_others.value == 1",
+				"index" : 16,
+				"order" : 116,
+				"text" : "- Show controls",
+				"type" : "bool",
+				"value" : true
+			},
+			"draw" : 
+			{
+				"condition" : "show_others.value == 1",
+				"index" : 15,
+				"order" : 115,
+				"text" : "- Draw",
+				"type" : "bool",
+				"value" : true
+			},
+			"edgewrap" : 
 			{
 				"condition" : "show_behavior.value == 1",
-				"index" : 2,
-				"options" : 
-				[
-					{
-						"label" : "don't wrap",
-						"value" : "zeros"
-					},
-					{
-						"label" : "wrap",
-						"value" : "wrap"
-					}
-				],
-				"order" : 102,
-				"text" : "- Edges",
-				"type" : "combo",
-				"value" : "zeros"
+				"index" : 4,
+				"order" : 104,
+				"text" : "- Edge wrap",
+				"type" : "bool",
+				"value" : false
 			},
 			"gps" : 
 			{
 				"condition" : "show_behavior.value == 1",
 				"fraction" : false,
-				"index" : 3,
+				"index" : 5,
 				"max" : 120,
 				"min" : 1,
-				"order" : 103,
+				"order" : 105,
 				"text" : "- Generations per second",
 				"type" : "slider",
 				"value" : 16
@@ -68,8 +75,8 @@
 			"mr" : 
 			{
 				"condition" : "show_mr.value == 1",
-				"index" : 9,
-				"order" : 109,
+				"index" : 11,
+				"order" : 111,
 				"text" : "- Enabled",
 				"type" : "bool",
 				"value" : true
@@ -78,10 +85,10 @@
 			{
 				"condition" : "show_mr.value == 1",
 				"fraction" : true,
-				"index" : 10,
+				"index" : 12,
 				"max" : 5,
 				"min" : 0.10000000000000001,
-				"order" : 110,
+				"order" : 112,
 				"precision" : 2,
 				"step" : 0.10000000000000001,
 				"text" : "- Audio Height Amplification",
@@ -91,7 +98,7 @@
 			"mr_dir" : 
 			{
 				"condition" : "show_mr.value == 1",
-				"index" : 11,
+				"index" : 13,
 				"options" : 
 				[
 					{
@@ -111,10 +118,95 @@
 						"value" : "left"
 					}
 				],
-				"order" : 111,
+				"order" : 113,
 				"text" : "- Direction",
 				"type" : "combo",
 				"value" : "up"
+			},
+			"rule" : 
+			{
+				"condition" : "show_behavior.value == 1",
+				"index" : 1,
+				"options" : 
+				[
+					{
+						"label" : "Custom",
+						"value" : "custom"
+					},
+					{
+						"label" : "Conway's GoL",
+						"value" : "conways_gol"
+					},
+					{
+						"label" : "Replicator",
+						"value" : "replicator"
+					},
+					{
+						"label" : "Fredkin",
+						"value" : "fredkin"
+					},
+					{
+						"label" : "Seeds",
+						"value" : "seeds"
+					},
+					{
+						"label" : "Live Free or Die",
+						"value" : "lfod"
+					},
+					{
+						"label" : "Life without Death",
+						"value" : "lwd"
+					},
+					{
+						"label" : "Flock",
+						"value" : "flock"
+					},
+					{
+						"label" : "Maze",
+						"value" : "maze"
+					},
+					{
+						"label" : "Mazectric",
+						"value" : "maze_ctric"
+					},
+					{
+						"label" : "2x2",
+						"value" : "2b2"
+					},
+					{
+						"label" : "HighLife",
+						"value" : "highlife"
+					},
+					{
+						"label" : "Move",
+						"value" : "move"
+					},
+					{
+						"label" : "Day & Night",
+						"value" : "dan"
+					},
+					{
+						"label" : "DryLife",
+						"value" : "drylife"
+					},
+					{
+						"label" : "Pedestrian Life",
+						"value" : "pl"
+					}
+				],
+				"order" : 101,
+				"text" : "- Rule",
+				"type" : "combo",
+				"value" : "conways_gol"
+			},
+			"rulestring" : 
+			{
+				"condition" : "show_behavior.value == 1 && rule.value == \"custom\"",
+				"index" : 2,
+				"order" : 102,
+				"text" : "- Rulestring",
+				"type" : "textinput",
+				"value" : "B3/S23"
 			},
 			"schemecolor" : 
 			{
@@ -125,48 +217,53 @@
 			},
 			"show_behavior" : 
 			{
-				"index" : 1,
-				"order" : 101,
+				"index" : 0,
+				"order" : 100,
 				"text" : "---- Behavior",
 				"type" : "bool",
 				"value" : false
 			},
 			"show_colors" : 
 			{
-				"index" : 4,
-				"order" : 104,
+				"index" : 6,
+				"order" : 106,
 				"text" : "---- Colors",
 				"type" : "bool",
 				"value" : false
 			},
 			"show_mr" : 
 			{
-				"index" : 8,
-				"order" : 108,
-				"text" : "---- Music Reactive",
+				"index" : 10,
+				"order" : 110,
+				"text" : "---- Audio Responsiveness",
 				"type" : "bool",
 				"value" : false
 			},
-			"starttype" : 
+			"show_others" : 
 			{
-				"index" : 0,
+				"index" : 14,
+				"order" : 114,
+				"text" : "---- Others",
+				"type" : "bool",
+				"value" : false
+			},
+			"startgrid" : 
+			{
+				"condition" : "show_behavior.value == 1",
+				"index" : 3,
 				"options" : 
 				[
 					{
-						"label" : "empty field",
+						"label" : "empty",
 						"value" : "empty"
 					},
 					{
-						"label" : "random field",
+						"label" : "random",
 						"value" : "random"
-					},
-					{
-						"label" : "a glider",
-						"value" : "glider"
 					}
 				],
-				"order" : 100,
-				"text" : "Start with",
+				"order" : 103,
+				"text" : "- Start grid",
 				"type" : "combo",
 				"value" : "empty"
 			}
@@ -175,9 +272,9 @@
 	},
 	"preview" : "preview.jpg",
 	"tags" : [ "Music" ],
-	"title" : "Conway's Game of Life -- Music Reactive",
-	"type" : "web",
-	"version" : 1,
+	"title" : "Conway's Game of Life -- Audio Responsive",
+	"type" : "Web",
+	"version" : 2,
 	"visibility" : "public",
 	"workshopid" : "2628336501",
 	"workshopurl" : "steam://url/CommunityFilePage/2628336501"
