@@ -1,35 +1,34 @@
 # WallpaperEngine-Conways-GoL-AudioResponsive
 Audio responsive and highly customizable [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) wallpaper for [Wallpaper Engine](https://www.wallpaperengine.io/en).
 
-## Customizable
-* Start with:
-Determines if the grid should start *empty* or *with random values*
-\[Default value: empty]
+## Settings
 * Behavior
-  * Edges:
+  * Rule:
+  
+  * Edges:  
   Determines of the grid *wraps* or *doesn't wrap* around the edges
   \[Default value: don't wrap]
-  * Generations per second:
+  * Generations per second:  
   How many generations to advance per second (Keep in mind that Wallpaper Engine only provides audio updates 30 times a second)
   \[Default value: 16]
 * Colors
-  * Bottom Left:
+  * Bottom Left:  
   Color in the bottom left corner
   \[Default value: #ff00ff]
-  * Top Right:
+  * Top Right:  
   Color in the top right corner
   \[Default value: #00c7ff]
-  * Background:
+  * Background:  
   The static solid color of the background
   \[Default value: #363636]
 * Music Reactive
-  * Enabled:
+  * Enabled:  
   Enables/Disables the audio responsiveness
   \[Default value: true]
-  * Audio Height Amplification:
+  * Audio Height Amplification:  
   Amplifies the height of the audio columns
   \[Default value: 1]
-  * Direction:
+  * Direction:  
   The direction the audio columns are facing (up, down, left, right)
   \[Default value: up]
 
