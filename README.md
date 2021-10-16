@@ -6,8 +6,8 @@ Audio responsive and highly customizable [Conway's Game of Life](https://en.wiki
   * Rule:
   
   * Edges:  
-    Determines of the grid *wraps* or *doesn't wrap* around the edges  
-    \[Default value: don't wrap]
+  > Determines of the grid *wraps* or *doesn't wrap* around the edges  
+  > \[Default value: don't wrap]
   * Generations per second:  
   How many generations to advance per second (Keep in mind that Wallpaper Engine only provides audio updates 30 times a second)
   \[Default value: 16]
