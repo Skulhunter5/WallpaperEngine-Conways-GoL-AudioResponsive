@@ -1,6 +1,6 @@
 {
 	"contentrating" : "Everyone",
-	"description" : "Audio responsive and highly customizable Conway's Game of Life simulation.\r\n\r\nYou can find the source code [url=https://github.com/Skulhunter5/WallpaperEngine-Conways-GoL-AudioResponsive]here[/url].\r\n\r\nCredits to SaggiSponge from which I got the idea.",
+	"description" : "Audio responsive and highly customizable Conway's Game of Life simulation.\r\n\r\nYou can find the source code and some information about all the settings [url=https://github.com/Skulhunter5/WallpaperEngine-Conways-GoL-AudioResponsive]here[/url].\r\n\r\nCredits to SaggiSponge from which I got the idea.",
 	"file" : "index.html",
 	"general" : 
 	{
@@ -265,7 +265,7 @@
 				"order" : 103,
 				"text" : "- Start grid",
 				"type" : "combo",
-				"value" : "empty"
+				"value" : "random"
 			}
 		},
 		"supportsaudioprocessing" : true
@@ -274,7 +274,7 @@
 	"tags" : [ "Music" ],
 	"title" : "Conway's Game of Life -- Audio Responsive",
 	"type" : "Web",
-	"version" : 2,
+	"version" : 3,
 	"visibility" : "public",
 	"workshopid" : "2628336501",
 	"workshopurl" : "steam://url/CommunityFilePage/2628336501"

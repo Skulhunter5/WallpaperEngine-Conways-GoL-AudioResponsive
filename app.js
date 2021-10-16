@@ -1,8 +1,11 @@
 // DOM elements
 var canvas;
-var button_clear;
-var button_togglestate;
-var button_step;
+var controls_ids = [
+   "button_clear",
+   "button_togglestate",
+   "button_step",
+];
+var controls_buttons;
 
 // Sizes
 var width, height;
@@ -64,9 +67,10 @@ var debug;
 function init() {
    canvas = document.getElementById('canvas');
    
-   button_clear = document.getElementById('button_clear');
-   button_togglestate = document.getElementById('button_togglestate');
-   button_step = document.getElementById('button_step');
+   controls_buttons = [];
+   controls_ids.forEach(e => {
+      controls_buttons.push(document.getElementById(e));
+   });
 
    initGrid();
    initAudioListener();
@@ -162,7 +166,7 @@ var mouseY = 0;
 function mouseListener(event) {
    if(event.type == "mousedown") {
       let targetId = event.target.id;
-      if(targetId != "canvas") return;
+      if(!controls_ids.includes(targetId)) return;
 
       if(event.button == 0) {
          mousedown = true;
@@ -352,9 +356,9 @@ function prop_draw(properties) {
 function prop_controls(properties) {
    if(properties.controls) {
       let display = properties.controls.value ? "block" : "none";
-      button_clear.style.display = display;
-      button_togglestate.style.display = display;
-      button_step.style.display = display;
+      controls_buttons.forEach(e => {
+         e.style.display = display;
+      });
    }
 }
 
