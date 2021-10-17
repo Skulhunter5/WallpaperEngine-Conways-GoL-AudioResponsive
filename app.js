@@ -166,7 +166,7 @@ var mouseY = 0;
 function mouseListener(event) {
    if(event.type == "mousedown") {
       let targetId = event.target.id;
-      if(!controls_ids.includes(targetId)) return;
+      if(controls_ids.includes(targetId)) return;
 
       if(event.button == 0) {
          mousedown = true;
