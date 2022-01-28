@@ -6,20 +6,29 @@
 	{
 		"properties" : 
 		{
-			"color_1_1" : 
+			"color_1" : 
 			{
-				"condition" : "show_colors.value == 1 && colormode.value == \"static_lerp_2\"",
+				"condition" : "show_colors.value == 1 && colormode.value == \"static_1\"",
 				"index" : 9,
 				"order" : 109,
-				"text" : "-- Color 1",
+				"text" : "-- Color",
 				"type" : "color",
-				"value" : "1 0 1"
+				"value" : "1 1 1"
 			},
-			"color_1_2" : 
+			"color_2_1" : 
 			{
 				"condition" : "show_colors.value == 1 && colormode.value == \"static_lerp_2\"",
 				"index" : 10,
 				"order" : 110,
+				"text" : "-- Color 1",
+				"type" : "color",
+				"value" : "1 0 1"
+			},
+			"color_2_2" : 
+			{
+				"condition" : "show_colors.value == 1 && colormode.value == \"static_lerp_2\"",
+				"index" : 11,
+				"order" : 111,
 				"text" : "-- Color 2",
 				"type" : "color",
 				"value" : "0 0.7803921568627451 1"
@@ -40,7 +49,11 @@
 				"options" : 
 				[
 					{
-						"label" : "Lerp 2 colors",
+						"label" : "Static",
+						"value" : "static_1"
+					},
+					{
+						"label" : "Lerp 2",
 						"value" : "static_lerp_2"
 					},
 					{
@@ -54,6 +67,10 @@
 					{
 						"label" : "Moving Rainbow",
 						"value" : "moving_rainbow"
+					},
+					{
+						"label" : "Age Rainbow",
+						"value" : "age_rainbow"
 					}
 				],
 				"order" : 108,
@@ -64,8 +81,8 @@
 			"controls" : 
 			{
 				"condition" : "show_others.value == 1",
-				"index" : 20,
-				"order" : 120,
+				"index" : 21,
+				"order" : 121,
 				"text" : "- Show controls",
 				"type" : "bool",
 				"value" : true
@@ -73,8 +90,8 @@
 			"draw" : 
 			{
 				"condition" : "show_others.value == 1",
-				"index" : 19,
-				"order" : 119,
+				"index" : 20,
+				"order" : 120,
 				"text" : "- Draw",
 				"type" : "bool",
 				"value" : true
@@ -92,10 +109,10 @@
 			{
 				"condition" : "show_colors.value == 1 && colormode.value == \"fade_rainbow\"",
 				"fraction" : false,
-				"index" : 11,
+				"index" : 12,
 				"max" : 60,
 				"min" : 1,
-				"order" : 111,
+				"order" : 112,
 				"text" : "-- Seconds per revelation",
 				"type" : "slider",
 				"value" : 10
@@ -116,10 +133,10 @@
 			{
 				"condition" : "show_colors.value == 1 && colormode.value == \"moving_rainbow\"",
 				"fraction" : true,
-				"index" : 13,
+				"index" : 14,
 				"max" : 2,
 				"min" : 0.2,
-				"order" : 113,
+				"order" : 114,
 				"precision" : 2,
 				"step" : 0.1,
 				"text" : "-- Range",
@@ -130,10 +147,10 @@
 			{
 				"condition" : "show_colors.value == 1 && colormode.value == \"moving_rainbow\"",
 				"fraction" : false,
-				"index" : 12,
+				"index" : 13,
 				"max" : 60,
 				"min" : 1,
-				"order" : 112,
+				"order" : 113,
 				"text" : "-- Seconds per revelation",
 				"type" : "slider",
 				"value" : 10
@@ -141,8 +158,8 @@
 			"mr" : 
 			{
 				"condition" : "show_mr.value == 1",
-				"index" : 15,
-				"order" : 115,
+				"index" : 16,
+				"order" : 116,
 				"text" : "- Enabled",
 				"type" : "bool",
 				"value" : true
@@ -151,10 +168,10 @@
 			{
 				"condition" : "show_mr.value == 1",
 				"fraction" : true,
-				"index" : 16,
+				"index" : 17,
 				"max" : 5,
 				"min" : 0.1,
-				"order" : 116,
+				"order" : 117,
 				"precision" : 2,
 				"step" : 0.1,
 				"text" : "- Audio Height Amplification",
@@ -164,7 +181,7 @@
 			"mr_dir" : 
 			{
 				"condition" : "show_mr.value == 1",
-				"index" : 17,
+				"index" : 18,
 				"options" : 
 				[
 					{
@@ -184,7 +201,7 @@
 						"value" : "left"
 					}
 				],
-				"order" : 117,
+				"order" : 118,
 				"text" : "- Direction",
 				"type" : "combo",
 				"value" : "up"
@@ -299,16 +316,16 @@
 			},
 			"show_mr" : 
 			{
-				"index" : 14,
-				"order" : 114,
+				"index" : 15,
+				"order" : 115,
 				"text" : "---- Audio Responsiveness",
 				"type" : "bool",
 				"value" : false
 			},
 			"show_others" : 
 			{
-				"index" : 18,
-				"order" : 118,
+				"index" : 19,
+				"order" : 119,
 				"text" : "---- Others",
 				"type" : "bool",
 				"value" : false
@@ -340,7 +357,7 @@
 	"tags" : [ "Music" ],
 	"title" : "Conway's Game of Life -- Audio Responsive",
 	"type" : "web",
-	"version" : 6,
+	"version" : 7,
 	"visibility" : "public",
 	"workshopid" : "2628336501",
 	"workshopurl" : "steam://url/CommunityFilePage/2628336501"

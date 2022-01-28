@@ -4,13 +4,16 @@ var STARTGRID_EMPTY = 0;
 var STARTGRID_RANDOM = 1;
 // - COLORMODE
 var COLORMODE_NONE = 0;
-var COLORMODE_STATIC_LERP_2 = 1;
-var COLORMODE_STATIC_RAINBOW = 2;
-var COLORMODE_FADE_RAINBOW = 3;
-var COLORMODE_MOVING_RAINBOW = 4;
+var COLORMODE_STATIC_1 = 1;
+var COLORMODE_STATIC_LERP_2 = 2;
+var COLORMODE_STATIC_RAINBOW = 3;
+var COLORMODE_FADE_RAINBOW = 4;
+var COLORMODE_MOVING_RAINBOW = 5;
+var COLORMODE_AGE_RAINBOW = 6;
 
 // DOM elements
 var canvas;
+// TODO: make each control button toggleable
 var controls_ids = [
    "button_clear",
    "button_togglestate",
@@ -29,12 +32,17 @@ var cellPadding = 2;
 
 // Grid
 var grid;
+var grid_age;
 
 // Colors
 // - Background color
 var color_bg = [54, 54, 54];
 // - COLORMODE
 var colormode = COLORMODE_STATIC_LERP_2;
+// - COLORMODE_STATIC_LERP_2
+const static_1 = {
+   color: [255, 255, 255],
+}
 // - COLORMODE_STATIC_LERP_2
 const static_lerp_2 = {
    color1: [255, 0, 255],
@@ -152,6 +160,7 @@ function grid_empty() {
       grid[x] = [];
       for(var y = 0; y < gridHeight; y++) grid[x][y] = false;
    }
+   if(grid_age) grid_age_fit();
 }
 
 function grid_random() {
@@ -159,6 +168,15 @@ function grid_random() {
    for(var x = 0; x < gridWidth; x++) {
       grid[x] = [];
       for(var y = 0; y < gridHeight; y++) grid[x][y] = Math.random() >= 0.5;
+   }
+   if(grid_age) grid_age_fit();
+}
+
+function grid_age_fit() {
+   grid_age = [];
+   for(var x = 0; x < gridWidth; x++) {
+      grid_age[x] = [];
+      for(var y = 0; y < gridHeight; y++) grid_age[x][y] = grid[x][y] ? 1 : 0;
    }
 }
 
@@ -181,10 +199,6 @@ function audioListener(audioArray) {
       audioData.push(amplify(audioArray[i - 64]));
       audioData.push(amplify(audioArray[i]));
    }
-}
-
-function amplify(x) {
-   return Math.min(Math.pow(Math.round(x * 100000) / 100000, 1 / audioAmplification));
 }
 
 function initMouseListener() {
@@ -219,6 +233,20 @@ function mouseListener(event) {
       }
       mouseX = event.clientX;
       mouseY = event.clientY;
+   }
+}
+
+/*
+
+   Age colormodes
+
+*/
+
+function initAgeGrid() {
+   grid_age = [];
+   for(var x = 0; x < gridWidth; x++) {
+      grid_age[x] = [];
+      for(var y = 0; y < gridHeight; y++) grid_age[x][y] = 0;
    }
 }
 
@@ -320,15 +348,22 @@ function prop_color(properties) {
    // COLORMODES
    if(properties.colormode) {
       let cmstr = properties.colormode.value;
-      if(cmstr == "static_lerp_2") colormode = COLORMODE_STATIC_LERP_2;
+      if(cmstr == "static_1") colormode = COLORMODE_STATIC_1;
+      else if(cmstr == "static_lerp_2") colormode = COLORMODE_STATIC_LERP_2;
       else if(cmstr == "static_rainbow") colormode = COLORMODE_STATIC_RAINBOW;
       else if(cmstr == "fade_rainbow") colormode = COLORMODE_FADE_RAINBOW;
       else if(cmstr == "moving_rainbow") colormode = COLORMODE_MOVING_RAINBOW;
-      else COLORMODE_NONE;
+      else if(cmstr == "age_rainbow") {
+         colormode = COLORMODE_AGE_RAINBOW;
+         initAgeGrid();
+      } else colormode = COLORMODE_NONE;
+      if(colormode != COLORMODE_AGE_RAINBOW) grid_age = undefined;
    }
+   // COLORMODE_STATIC_1
+   if(properties.color_1) static_1.color = properties.color_1.value.split(' ').map((c) => c * 255);
    // COLORMODE_STATIC_LERP_2
-   if(properties.color_1_1) static_lerp_2.color1 = properties.color_1_1.value.split(' ').map((c) => c * 255);
-   if(properties.color_1_2) static_lerp_2.color2 = properties.color_1_2.value.split(' ').map((c) => c * 255);
+   if(properties.color_2_1) static_lerp_2.color1 = properties.color_2_1.value.split(' ').map((c) => c * 255);
+   if(properties.color_2_2) static_lerp_2.color2 = properties.color_2_2.value.split(' ').map((c) => c * 255);
    // COLORMODE_FADE_RAINBOW
    if(properties.fade_rainbow_time) {
       fade_rainbow.time = properties.fade_rainbow_time.value;
@@ -442,8 +477,14 @@ function advanceGeneration() {
                if(grid[shiftedX][shiftedY]) neighbors++;
             }
          }
+
          if(!grid[x][y] && birth.includes(neighbors)) next[x][y] = true;
          else if(grid[x][y] && !survive.includes(neighbors)) next[x][y] = false;
+
+         if(grid_age) {
+            if(next[x][y]) grid_age[x][y] = Math.min(grid_age[x][y]+1, 12);
+            else grid_age[x][y] = 0;
+         }
       }
    }
 
@@ -470,7 +511,10 @@ function fillGridWithMusicData() {
             start = gridHeight - end;
             end = gridHeight;
          }
-         for(var y = start; y < end; y++) grid[x][y] = true;
+         for(var y = start; y < end; y++) {
+            if(!grid[x][y] && grid_age) grid_age[x][y] = 1;
+            grid[x][y] = true;
+         }
       }
    } else if(mrDirection == 2 || mrDirection == 3) {
       for(var y = 0; y < audioData.length; y++) {
@@ -480,7 +524,10 @@ function fillGridWithMusicData() {
             start = gridWidth - end;
             end = gridWidth;
          }
-         for(var x = start; x < end; x++) grid[x][y] = true;
+         for(var x = start; x < end; x++) {
+            if(!grid[x][y] && grid_age) grid_age[x][y] = 1;
+            grid[x][y] = true;
+         }
       }
    }
 }
@@ -491,7 +538,7 @@ function render() {
    ctx.clearRect(0, 0, width, height);
    ctx.fillStyle = `rgba(${color_bg.join(',')})`;
    ctx.fillRect(0, 0, width, height);
-   
+
    if(canvas.getContext) {
       for(var x = 0; x < gridWidth; x++) {
          for(var y = 0; y < gridHeight; y++) {
@@ -501,7 +548,9 @@ function render() {
             let yPos = (cellSize * y) + cellPadding;
             let drawSize = cellSize - cellPadding * 2;
             
-            if(colormode == COLORMODE_STATIC_LERP_2)
+            if(colormode == COLORMODE_STATIC_1)
+               ctx.fillStyle = `rgba(${static_1.color.join(',')},1)`;
+            else if(colormode == COLORMODE_STATIC_LERP_2)
                ctx.fillStyle = `rgba(${getLerpedColor(static_lerp_2.color1, static_lerp_2.color2, x, y).join(',')},1)`;
             else if(colormode == COLORMODE_STATIC_RAINBOW)
                ctx.fillStyle = "hsl(" + (((Math.sqrt(x*x+y*y) / maxDistance) * -250) + 250) + ",100%,50%)";
@@ -509,6 +558,8 @@ function render() {
                ctx.fillStyle = "hsl(" + fade_rainbow.offset + ",100%,50%)";
             else if(colormode == COLORMODE_MOVING_RAINBOW)
                ctx.fillStyle = "hsl(" + (moving_rainbow.offset + Math.round(Math.sqrt(x*x + y*y) / maxDistance * 360 * moving_rainbow.range) % 360) + ",100%,50%)";
+            else if(colormode == COLORMODE_AGE_RAINBOW)
+               ctx.fillStyle = "hsl(" + map(grid_age[x][y], 1, 13, 0, 360) + ",100%,50%)";
             else ctx.fillStyle = "rgba(255,255,255,1)";
             
             ctx.fillRect(xPos, yPos + cellPadding, drawSize, drawSize);
@@ -526,6 +577,8 @@ function getLerpedColor(ca, cb, x, y) {
 const mod = (a, b) => a == b ? 0 : a == -1 ? b - 1 : a % b;
 const map = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
 const lerp = (a, b, d) => a + (b - a) * d;
+const amplify = (x) => Math.min(Math.pow(Math.round(x * 100000) / 100000, 1 / audioAmplification));
+const clamp = (x, min, max) => Math.min(Math.max(x, min), max);
 
 function distance(x1, y1, x2, y2) {
    let x = x2 - x1;
