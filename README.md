@@ -4,7 +4,7 @@ Audio responsive and highly customizable [Conway's Game of Life](https://en.wiki
 ## Settings
 * Behavior
   * Rule:  
-  One of many well known 2d cellular automaton rules (list from [here](https://conwaylife.com/wiki/Cellular_automaton#Well-known_life-like_cellular_automata)) or a custom rule  
+  One of many well known 2d cellular automaton rules or a custom rule  
   \[Default value: *Conway's Game of Life*]
   * Rulestring:  
   If you select *custom* as the rule, this field is visible and you can put in your custom rulestring  
